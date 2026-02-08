@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Day Surprise for Jenisha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            min-height: 100vh;
+            color: #5a2d43;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(to right, #ff6b9d, #ff8fab);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(212, 57, 104, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Main Content Area */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Instagram Card */
+        .instagram-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(212, 57, 104, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .instagram-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .instagram-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .user-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .user-info p {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .message-box {
+            padding: 30px;
+            background-color: #fff9fb;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #5a2d43;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .question-box {
+            margin-top: 20px;
+            padding: 25px;
+            background-color: #fff5f8;
+            border-radius: 15px;
+            border: 2px dashed #ff8fab;
+            text-align: center;
+        }
+        
+        .question {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d63384;
+            margin-bottom: 25px;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+        
+        .yes-btn {
+            background: linear-gradient(to right, #ff6b9d, #ff8fab);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+        
+        .yes-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.6);
+        }
+        
+        .no-btn {
+            background-color: #f0f0f0;
+            color: #aaa;
+            cursor: not-allowed;
+            position: relative;
+        }
+        
+        .no-btn::after {
+            content: "Not an option ❤️";
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .no-btn:hover::after {
+            opacity: 1;
+        }
+        
+        /* Surprise Section */
+        .surprise-section {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(212, 57, 104, 0.15);
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .surprise-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .rose-bouquet {
+            font-size: 8rem;
+            color: #ff6b9d;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .name-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #d63384;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        .surprise-message {
+            font-size: 1.3rem;
+            color: #5a2d43;
+            margin-top: 15px;
+            text-align: center;
+            max-width: 80%;
+            line-height: 1.6;
+        }
+        
+        .balloons-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            border-radius: 50%;
+            bottom: -70px;
+            animation: balloon-rise 10s linear forwards;
+        }
+        
+        .balloon:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 70px;
+            top: 60px;
+            left: 24px;
+        }
+        
+        .balloon:nth-child(odd) {
+            background-color: #ff6b9d;
+        }
+        
+        .balloon:nth-child(odd):before {
+            background-color: #ff6b9d;
+        }
+        
+        .balloon:nth-child(even) {
+            background-color: #ff8fab;
+        }
+        
+        .balloon:nth-child(even):before {
+            background-color: #ff8fab;
+        }
+        
+        /* Sharing Section */
+        .sharing-section {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(212, 57, 104, 0.15);
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .sharing-section h2 {
+            color: #d63384;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        
+        .share-instructions {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .instagram-share {
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+        
+        .download-btn {
+            background: linear-gradient(to right, #ff6b9d, #ff8fab);
+            color: white;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .heart {
+            color: #ff6b9d;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes balloon-rise {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(20deg); opacity: 0; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Floating Roses */
+        .floating-roses {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-rose {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 107, 157, 0.2);
+            animation: float-around 15s linear infinite;
+        }
+        
+        @keyframes float-around {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 100px) rotate(90deg); }
+            50% { transform: translate(50px, 200px) rotate(180deg); }
+            75% { transform: translate(-50px, 100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Roses Background -->
+    <div class="floating-roses" id="floatingRoses"></div>
+    
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-rose"></i> Rose Day Surprise</h1>
+            <p>A digital token of remembrance for my beautiful friend Jenisha</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- Instagram Card -->
+            <div class="instagram-card">
+                <div class="instagram-header">
+                    <div class="profile-pic">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h3>From Your Best Friend</h3>
+                        <p>Rose Day • Just for you</p>
+                    </div>
+                </div>
+                
+                <div class="message-box">
+                    <p class="message">
+                        "A digital bloom for a beautiful soul. I may not be the greatest star in your sky, but I am grateful to hold a steady place in your heart. Though yesterday's sun set before I could offer a rose, let this token carry the weight of my remembrance and the depth of my affection today. For a special friend, with love."
+                    </p>
+                    
+                    <div class="question-box">
+                        <div class="question">Will you accept this rose, Jenisha?</div>
+                        <div class="button-container">
+                            <button class="btn yes-btn" id="yesBtn">
+                                <i class="fas fa-heart"></i> Yes, I will
+                            </button>
+                            <button class="btn no-btn" id="noBtn" disabled>
+                                <i class="fas fa-times"></i> No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Surprise Section -->
+            <div class="surprise-section">
+                <div class="balloons-container" id="balloonsContainer"></div>
+                
+                <div class="initial-state" id="initialState">
+                    <i class="fas fa-gift" style="font-size: 6rem; color: #ff8fab; margin-bottom: 20px;"></i>
+                    <h2 style="color: #d63384; margin-bottom: 15px;">Your Surprise Awaits</h2>
+                    <p style="font-size: 1.2rem; color: #666; max-width: 400px;">
+                        Click "Yes, I will" on the card to reveal a special Rose Day surprise made just for Jenisha!
+                    </p>
+                </div>
+                
+                <div class="surprise-content" id="surpriseContent">
+                    <div class="rose-bouquet">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    
+                    <div class="name-display">
+                        JENISHA <span class="heart"><i class="fas fa-heart"></i></span>
+                    </div>
+                    
+                    <p class="surprise-message">
+                        This digital bouquet carries all the affection and appreciation I have for you, my wonderful friend. Though yesterday passed, today I offer these eternal roses that will never wilt. Happy Rose Day!
+                    </p>
+                    
+                    <div style="margin-top: 30px; font-size: 1.5rem; color: #ff6b9d;">
+                        <i class="fas fa-rose"></i>
+                        <i class="fas fa-rose"></i>
+                        <i class="fas fa-rose"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sharing Section -->
+        <div class="sharing-section">
+            <h2><i class="fas fa-share-alt"></i> Share on Instagram</h2>
+            <p class="share-instructions">
+                Want to share this Rose Day surprise on Instagram? Here's how to do it without spoiling the surprise for Jenisha:<br>
+                1. Take a screenshot of the card (without the surprise revealed)<br>
+                2. Post it on Instagram with a caption hinting at your special friendship<br>
+                3. You can also screen-record the surprise reveal and share it as a Reel!
+            </p>
+            
+            <div class="share-buttons">
+                <button class="share-btn instagram-share" id="screenshotBtn">
+                    <i class="fas fa-camera"></i> Take Screenshot
+                </button>
+                <button class="share-btn download-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download Card
+                </button>
+                <button class="share-btn" id="shareLinkBtn" style="background: #4CAF50; color: white;">
+                    <i class="fas fa-link"></i> Copy Link
+                </button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Made with <span class="heart"><i class="fas fa-heart"></i></span> for Jenisha | Rose Day Surprise</p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">This website is a digital token of friendship and remembrance.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const surpriseContent = document.getElementById('surpriseContent');
+            const initialState = document.getElementById('initialState');
+            const balloonsContainer = document.getElementById('balloonsContainer');
+            const floatingRoses = document.getElementById('floatingRoses');
+            const screenshotBtn = document.getElementById('screenshotBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const shareLinkBtn = document.getElementById('shareLinkBtn');
+            
+            // Create floating roses in background
+            createFloatingRoses();
+            
+            // When "Yes" is clicked, show the surprise
+            yesBtn.addEventListener('click', function() {
+                // Hide initial state and show surprise
+                initialState.style.display = 'none';
+                surpriseContent.style.display = 'flex';
+                
+                // Create balloons
+                createBalloons();
+                
+                // Add some confetti effect
+                createConfetti();
+                
+                // Play a subtle sound (optional - browser may require user interaction first)
+                playCelebrationSound();
+                
+                // Change button text
+                yesBtn.innerHTML = '<i class="fas fa-check"></i> Accepted!';
+                yesBtn.style.background = 'linear-gradient(to right, #4CAF50, #8BC34A)';
+                yesBtn.disabled = true;
+            });
+            
+            // Make the "No" button show a tooltip
+            noBtn.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            noBtn.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Screenshot functionality
+            screenshotBtn.addEventListener('click', function() {
+                // In a real implementation, you would use a library like html2canvas
+                // For this demo, we'll show instructions
+                alert('To take a screenshot for Instagram:\n\n1. Position the card with your message\n2. Press PrtScn (Print Screen) on your keyboard\n3. Paste it into an image editor or directly into Instagram\n\nMake sure the surprise is not revealed in the screenshot!');
+            });
+            
+            // Download card functionality
+            downloadBtn.addEventListener('click', function() {
+                alert('In a full implementation, this would download the card as an image.\nFor now, you can take a screenshot as described above.');
+            });
+            
+            // Share link functionality
+            shareLinkBtn.addEventListener('click', function() {
+                const url = window.location.href;
+                navigator.clipboard.writeText(url).then(() => {
+                    const originalText = shareLinkBtn.innerHTML;
+                    shareLinkBtn.innerHTML = '<i class="fas fa-check"></i> Link Copied!';
+                    setTimeout(() => {
+                        shareLinkBtn.innerHTML = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    alert('Could not copy link. Please copy the URL manually: ' + url);
+                });
+            });
+            
+            // Function to create floating roses in background
+            function createFloatingRoses() {
+                const roseIcons = ['fa-rose', 'fa-spa', 'fa-leaf', 'fa-seedling'];
+                
+                for (let i = 0; i < 15; i++) {
+                    const rose = document.createElement('div');
+                    rose.classList.add('floating-rose');
+                    
+                    // Random properties
+                    const icon = roseIcons[Math.floor(Math.random() * roseIcons.length)];
+                    const size = 1 + Math.random() * 2;
+                    const left = Math.random() * 100;
+                    const top = Math.random() * 100;
+                    const delay = Math.random() * 15;
+                    const duration = 15 + Math.random() * 20;
+                    
+                    rose.innerHTML = `<i class="fas ${icon}"></i>`;
+                    rose.style.left = `${left}%`;
+                    rose.style.top = `${top}%`;
+                    rose.style.fontSize = `${size}rem`;
+                    rose.style.animationDelay = `${delay}s`;
+                    rose.style.animationDuration = `${duration}s`;
+                    
+                    floatingRoses.appendChild(rose);
+                }
+            }
+            
+            // Function to create balloons
+            function createBalloons() {
+                const balloonColors = ['#ff6b9d', '#ff8fab', '#ffc2d1', '#ffb3c6'];
+                
+                for (let i = 0; i < 15; i++) {
+                    const balloon = document.createElement('div');
+                    balloon.classList.add('balloon');
+                    
+                    // Random properties
+                    const size = 40 + Math.random() * 40;
+                    const left = Math.random() * 90;
+                    const delay = Math.random() * 5;
+                    const color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                    
+                    balloon.style.width = `${size}px`;
+                    balloon.style.height = `${size * 1.2}px`;
+                    balloon.style.left = `${left}%`;
+                    balloon.style.animationDelay = `${delay}s`;
+                    balloon.style.backgroundColor = color;
+                    
+                    // Create the balloon string
+                    const string = document.createElement('div');
+                    string.style.position = 'absolute';
+                    string.style.width = '2px';
+                    string.style.height = `${size * 1.5}px`;
+                    string.style.backgroundColor = color;
+                    string.style.top = `${size * 1.2}px`;
+                    string.style.left = '50%';
+                    string.style.transform = 'translateX(-50%)';
+                    
+                    balloon.appendChild(string);
+                    balloonsContainer.appendChild(balloon);
+                }
+            }
+            
+            // Function to create confetti
+            function createConfetti() {
+                const confettiColors = ['#ff6b9d', '#ff8fab', '#ffc2d1', '#d63384', '#ff6b6b'];
+                
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'absolute';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.top = '0';
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.opacity = '0.8';
+                    confetti.style.zIndex = '1';
+                    
+                    // Animation
+                    confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight}px) rotate(${360 + Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 2000 + Math.random() * 2000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    document.querySelector('.surprise-section').appendChild(confetti);
+                    
+                    // Remove confetti after animation
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }
+            }
+            
+            // Function to play celebration sound
+            function playCelebrationSound() {
+                // Create a simple beep sound using Web Audio API
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.value = 523.25; // C5 note
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.5);
+                } catch (e) {
+                    // Sound not supported or requires user interaction first
+                    console.log("Audio not supported or requires user interaction");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
